@@ -14,6 +14,7 @@ nextflow.enable.dsl = 1
 params.s3_prefix = false
 params.parent_id = false
 params.synapse_config = false
+params.filename_string = false
 
 if ( !params.s3_prefix ) {
   exit 1, "Parameter 'params.s3_prefix' is required!\n"
@@ -135,6 +136,7 @@ process list_objects {
   input:
   val s3_prefix from s3_prefix
   val bucket    from bucket_name
+  val filename_string from params.filename_string
 
   output:
   path 'objects.txt'    into ch_objects
