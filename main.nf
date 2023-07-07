@@ -148,7 +148,7 @@ process list_objects {
     -e 'synapseConfig' -e 'synapse_config' \
   | awk '{\$1=\$2=\$3=""; print \$0}' \
   | sed 's|^   |s3://${bucket}/|' \
-  ${filename_string ? "| grep '${filename_string}'" : ""} \  // Filter files based on string in filename (optional)
+  ${filename_string ? "| grep '${filename_string}'" : ""} \
   > objects.txt
   """
   
