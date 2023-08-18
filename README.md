@@ -79,6 +79,7 @@ The examples below demonstrate how you would index objects under an S3 prefix in
     ```yaml
     s3_prefix: "s3://example-bucket/outputs/"
     parent_id: "syn26601236"
+    filename_string: "g.vcf"
     ```
 
 5. Launch workflow using the [Nextflow CLI](https://nextflow.io/docs/latest/cli.html#run), the [Tower CLI](https://help.tower.nf/latest/cli/), or the [Tower web UI](https://help.tower.nf/latest/launch/launchpad/).
