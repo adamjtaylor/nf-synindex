@@ -26,7 +26,6 @@ If you have access to MD5 checksums, you should use those instead of the ones co
 ### Additional Limitations
 
 - The workflow doesn't annotate the Synapse files it creates with any metadata or provenance.
-- The workflow will index all of the objects under the given S3 prefix. There is no way to filter or skip the indexing of certain objects.
 
 ## Summary
 
@@ -80,6 +79,7 @@ The examples below demonstrate how you would index objects under an S3 prefix in
     ```yaml
     s3_prefix: "s3://example-bucket/outputs/"
     parent_id: "syn26601236"
+    filename_string: "g.vcf"
     ```
 
 5. Launch workflow using the [Nextflow CLI](https://nextflow.io/docs/latest/cli.html#run), the [Tower CLI](https://help.tower.nf/latest/cli/), or the [Tower web UI](https://help.tower.nf/latest/launch/launchpad/).
@@ -137,3 +137,5 @@ Check out the [Quickstart](#quickstart) section for example parameter values.
 - **`parent_id`**: (Required) The Synapse ID of a Synapse folder that will contain the indexed files and the associated folder structure.
 
 - **`synapse_config`**: (Optional) A [Synapse configuration file](https://python-docs.synapse.org/build/html/Credentials.html#use-synapseconfig) containing authentication credentials. 
+
+- **`filename_string`**: (Optional) A string that allows you to filter files that are contained in your S3 prefix. When provided, only files that contain the filename_string in the filename will be indexed on Synapse. 
